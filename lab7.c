@@ -1,3 +1,5 @@
+//Omar Elsayed
+//lab 7
 #include <stdio.h>
 
 typedef struct {
@@ -23,11 +25,10 @@ void bubbleSort(int arr[], int n, element swaps[], int *totalSwaps) {
         }
     }
 }
-
 void selectionSort(int arr[], int n, element swaps[], int *totalSwaps) {
     int i, j, min_idx, temp;
     *totalSwaps = 0;
-    for (i = 0; i < n - 1; i++) {
+    for (i = 0; i < n; i++) {
         min_idx = i;
         for (j = i + 1; j < n; j++) {
             if (arr[j] < arr[min_idx]) {
@@ -42,15 +43,13 @@ void selectionSort(int arr[], int n, element swaps[], int *totalSwaps) {
         }
     }
 
-    // Reset the numswaps for all elements
     for (i = 0; i < n; i++) {
         swaps[i].data = arr[i];
-        swaps[i].numswaps = 0;
+        swaps[i].numswaps = 0; 
     }
 
-    // Update swaps array
     for (i = 0; i < n; i++) {
-        swaps[arr[i]].numswaps++;
+        swaps[arr[i]].numswaps += i; 
     }
 }
 
